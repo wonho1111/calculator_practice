@@ -116,7 +116,7 @@ public class Calculator extends JFrame {
         double prev = 0; // 이전
         double current = 0; // 현재
         String mode = ""; // operator
-        String primode = "";
+        String primode = ""; // operator priority
 
         for (int i = 0; i < equation.size(); i++) { // 연산자 우선순위
             String s = equation.get(i); // 계산식 Arraylist 에서 해당 index 항목 가져오기
@@ -150,36 +150,6 @@ public class Calculator extends JFrame {
                     i -= 2; // i - 2 번쨰에서 다시 시작
                 }
             }
-
-//            if (s.equals("+")) {
-//                mode = "add";
-//            } else if (s.equals("-")) {
-//                mode = "sub";
-//            } else if (s.equals("×")) {
-//                mode = "mul";
-//            } else if (s.equals("÷")) {
-//                mode = "div";
-//            } else {
-//                if ((mode.equals("mul") || mode.equals("div")) && !s.equals("+") && !s.equals("-") && !s.equals("×") && !s.equals("÷")) { // 현재 인덱스에서 연산자가 아니고 mode = mul or div 일 때
-//                    Double one = Double.parseDouble(equation.get(i - 2)); // 두번째 피연산자 인덱스-2 는 첫번째 피연산자
-//                    Double two = Double.parseDouble(equation.get(i)); // 두번째 피연산자 ( 현재 인덱스 )
-//                    Double result = 0.0;
-//
-//                    if (mode.equals("mul")) {
-//                        result = one * two;
-//                    } else if (mode.equals("div")) {
-//                        result = one / two;
-//                    }
-//
-//                    equation.add(i + 1, Double.toString(result)); // 우선 연산한 결과값 저장
-//
-//                    for (int j = 0; j < 3; j++) {
-//                        equation.remove(i - 2); // 우선 연산한 식 Arraylist에서 지워주기 ( 현재 인덱스 - 2 부터 현재 인덱스 까지 )
-//                    }
-//
-//                    i -= 2; // i - 2 번쨰에서 다시 시작
-//                }
-//            }
         }
 
         for (String s : equation) {
